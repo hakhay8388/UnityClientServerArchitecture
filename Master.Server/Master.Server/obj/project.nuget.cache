@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YveiHs14qFr+srGK7TX+Ls6CXqCQkPvYwY5gJfLtzxguEpT5UPUzKxABxcavAKwWDIb6wCH6WdpHnpANBdFAMQ==",
+  "success": true,
+  "projectFilePath": "H:\\Unity_Project\\Unity_ServerClientSample\\Master.Server\\Master.Server\\Master.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\VirtualStyle\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

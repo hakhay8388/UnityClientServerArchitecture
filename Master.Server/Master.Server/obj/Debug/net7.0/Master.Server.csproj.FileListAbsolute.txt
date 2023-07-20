@@ -1,0 +1,17 @@
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.csproj.AssemblyReference.cache
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.GeneratedMSBuildEditorConfig.editorconfig
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.AssemblyInfoInputs.cache
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.AssemblyInfo.cs
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.csproj.CoreCompileInputs.cache
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\bin\Debug\net7.0\Master.Server.exe
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\bin\Debug\net7.0\Master.Server.deps.json
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\bin\Debug\net7.0\Master.Server.runtimeconfig.json
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\bin\Debug\net7.0\Master.Server.dll
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\bin\Debug\net7.0\Master.Server.pdb
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\bin\Debug\net7.0\Newtonsoft.Json.dll
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.csproj.CopyComplete
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.dll
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\refint\Master.Server.dll
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.pdb
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\Master.Server.genruntimeconfig.cache
+H:\Unity_Project\Unity_ServerClientSample\Master.Server\Master.Server\obj\Debug\net7.0\ref\Master.Server.dll
