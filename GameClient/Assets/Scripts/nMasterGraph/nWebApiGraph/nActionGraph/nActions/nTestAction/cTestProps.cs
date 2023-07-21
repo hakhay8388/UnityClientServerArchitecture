@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nNotificationAction
+namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nTestAction
 {
     public class cTestProps : cBaseProps
     {

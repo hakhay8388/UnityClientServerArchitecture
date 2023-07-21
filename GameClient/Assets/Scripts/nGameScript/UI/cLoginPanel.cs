@@ -1,22 +1,25 @@
-using Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nNotificationAction;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
+using Assets.Scripts.nMasterGraph;
+using Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nJoinLobbyAction;
+using Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nLoginAction;
+using Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph;
+using Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph.nCommands.nLoginResultCommand;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class cLoginPanel : cBaseUIItem
+public class cLoginPanel : cBaseMasterUIItem, ILoginResultReceiver
 {
     public static cLoginPanel Instance;
 
     public GameObject LoginPanel;
     public InputField UserNameField;
+    public bool Logined = false;
+    public bool LastLogined = false;
 
+    EConnectionState ConnectionLastState = EConnectionState.None;
 
-    int ConnectionLastState = 500;
-
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         if (Instance == null)
         {
             Instance = this;
@@ -33,9 +36,14 @@ public class cLoginPanel : cBaseUIItem
         if (cMasterConnector.Instance.ConnectionState != ConnectionLastState)
         {
             ConnectionLastState = cMasterConnector.Instance.ConnectionState;
-            if (cMasterConnector.Instance.ConnectionState == 1)
+            if (cMasterConnector.Instance.ConnectionState.ID == EConnectionState.Connected.ID)
             {
                 Show();
+            }
+            else if (cMasterConnector.Instance.ConnectionState.ID == EConnectionState.Connecting.ID)
+            {
+                Logined = false;
+                Hide();
             }
             else
             {
@@ -49,8 +57,19 @@ public class cLoginPanel : cBaseUIItem
     {
         //LoginPanel.SetActive(false);
         //UserNameField.interactable = false;
-        cMasterConnector.Instance.MasterGraph.ActionGraph.TestAction.Action(new cTestProps("Deneme"));
+        cMasterConnector.Instance.MasterGraph.ActionGraph.LoginAction.Action(new cLoginProps(UserNameField.text));
 
         //cClient2.instance.ConnectToServer();
+    }
+
+  
+
+    public void ReceiveLoginResultData(cListenerEvent _ListenerEvent, cLoginResultCommandData _ReceivedData)
+    {
+        Logined = _ReceivedData.Logined;
+        if (Logined)
+        {
+            Hide();
+        }
     }
 }

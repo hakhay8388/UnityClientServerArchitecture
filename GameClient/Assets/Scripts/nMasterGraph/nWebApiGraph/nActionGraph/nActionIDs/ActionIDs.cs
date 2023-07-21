@@ -11,6 +11,12 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActionIDs
         public static List<ActionIDs> TypeList { get; set; }
 
         public static ActionIDs Test = new ActionIDs(GetVariableName(() => Test), 1, "", true);
+        public static ActionIDs Login = new ActionIDs(GetVariableName(() => Login), 2, "", true);
+
+        public static ActionIDs IAmInLobby = new ActionIDs(GetVariableName(() => IAmInLobby), 10, "", true);
+        public static ActionIDs GetLobbyUsers = new ActionIDs(GetVariableName(() => GetLobbyUsers), 11, "", true);
+        public static ActionIDs JoinLobby = new ActionIDs(GetVariableName(() => JoinLobby), 12, "", true);
+        
 
         public bool Enabled { get; set; }
         public string Info { get; set; }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActionIDs;
 
-namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nNotificationAction
+namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nTestAction
 {
     public class cTestAction : cBaseActionWithProps<cTestProps>
     {

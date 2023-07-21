@@ -23,7 +23,8 @@ namespace Master.Server.nSessionManager
             Server = _Server;
             TcpNode = _TcpNode;
             UDP_IPEndPoint = _UDP_IPEndPoint;
-            ConnectionID = _ConnectionID; ;
+            ConnectionID = _ConnectionID;
+            RefreshValue();
         }
    
         public void RefreshValue()

@@ -47,6 +47,8 @@ namespace NewClientServerSampleWithUdp
 
         public void OnTcpDisconnected(cTcpNode _Node)
         {
+            cSession __Session = SessionManager.GetSessionByConnectionID(_Node.Id);
+            MasterGraph.CommandGraph.InterpreterCommand(__Session, "{\"CID\":\"3\",\"Data\":{}}");
             SessionManager.DeleteSessionByConnectionID(_Node.Id);
         }
 
@@ -64,7 +66,10 @@ namespace NewClientServerSampleWithUdp
             else
             {
                 cSession __Session = SessionManager.GetSessionByIPEndPoint(_Data.IPEndPoint);
-                MasterGraph.CommandGraph.InterpreterCommand(__Session, _Data.Message);
+                lock(__Session)
+                {
+                    MasterGraph.CommandGraph.InterpreterCommand(__Session, _Data.Message);
+                }
                 //UdpServer.SendToAll(_Data.Message);
             }
             return true;            

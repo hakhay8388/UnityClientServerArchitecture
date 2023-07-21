@@ -53,7 +53,11 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph
                         try
                         {
                             MethodInfo __Receiver = CommandReceiverClass.GetMethod("Receive" + CommandID.Name + "Data", 0, new Type[] { typeof(cListenerEvent), __Data.GetType() });
-                            __Receiver.Invoke(__ReceiverObject, new object[] { __Event, __Data });
+                            cMasterConnector.RunOnMainThread.Enqueue(() =>
+                            {
+                                __Receiver.Invoke(__ReceiverObject, new object[] { __Event, __Data });
+                            });
+                            
                             if (__Event.IsPropogationStoped)
                             {
                                 break;

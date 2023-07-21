@@ -1,14 +1,15 @@
+using Assets.Scripts.nMasterGraph;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class cMessagePanel : cBaseUIItem
+public class cMessagePanel : cBaseMasterUIItem
 {
     public static cMessagePanel Instance;
     // Start is called before the first frame update
 
-    int ConnectionLastState = 500;
+    EConnectionState ConnectionLastState = EConnectionState.None;
     private void Awake()
     {
         if (Instance == null)
@@ -28,14 +29,14 @@ public class cMessagePanel : cBaseUIItem
         if (cMasterConnector.Instance.ConnectionState != ConnectionLastState)
         {
             ConnectionLastState = cMasterConnector.Instance.ConnectionState;
-            if (cMasterConnector.Instance.ConnectionState != 1)
+            if (cMasterConnector.Instance.ConnectionState.ID != EConnectionState.Connected.ID)
             {
                 Show();
-                if (ConnectionLastState == 0)
+                if (ConnectionLastState.ID == EConnectionState.Connecting.ID)
                 {
                     SetMessage("Connecting..");
                 }
-                else if (ConnectionLastState == 2)
+                else if (ConnectionLastState.ID == EConnectionState.ServerNotFound.ID)
                 {
                     SetMessage("Server Not Found..");
                 }

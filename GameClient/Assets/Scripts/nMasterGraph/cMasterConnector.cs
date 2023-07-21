@@ -13,28 +13,46 @@ using UnityEngine.UI;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Data;
+using Assets.Scripts.nMasterGraph;
+using System.Collections.Concurrent;
 
 public class cMasterConnector : cBaseConnector
 {
     public static cMasterConnector Instance;
     public cMasterGraph MasterGraph;
 
-    public int ConnectionState = 500;
+    public static readonly ConcurrentQueue<Action> RunOnMainThread = new ConcurrentQueue<Action>();
+
+    public EConnectionState ConnectionState = EConnectionState.None;
     void Awake()
     {
         Instance = this;
+        Screen.fullScreen = false;
+        Screen.SetResolution(800, 600, false);
+    }
+
+    void Update()
+    {
+        if (!RunOnMainThread.IsEmpty)
+        {
+            while (RunOnMainThread.TryDequeue(out var _Action))
+            {
+                _Action?.Invoke();
+            }
+        }
     }
 
     void Start()
     {
         MasterGraph = new cMasterGraph(this);
+        Application.LoadLevel("MainScreen");
         Thread __Thread = new Thread(new ThreadStart(ConnectToServer));
-        __Thread.Start(); 
+        __Thread.Start();
     }
 
     void ConnectToServer()
     {
-        ConnectionState = 0;
+        ConnectionState = EConnectionState.Connecting;
         Connect(Settings.MasterServerIP, Settings.MasterServerPort);
     }
 
@@ -62,13 +80,14 @@ public class cMasterConnector : cBaseConnector
     }
 
 
+
     public override void ServerNotFound()
     {
-        ConnectionState = 2;
+        ConnectionState = EConnectionState.ServerNotFound;
     }
 
     public override void ServerFound()
     {
-        ConnectionState = 1;
+        ConnectionState = EConnectionState.Connected;
     }
 }

@@ -20,7 +20,6 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph
         {
             CommandList = new List<cBaseCommand>();
             Graph = _Graph;
-            Init();
         }
 
 

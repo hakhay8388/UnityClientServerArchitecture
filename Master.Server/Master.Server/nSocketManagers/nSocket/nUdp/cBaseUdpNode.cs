@@ -29,12 +29,13 @@ namespace NewClientServerSampleWithUdp.nSocketManagers.nSocket.nUdp
         public void ReceiveUdpCallback(IAsyncResult _Result)
         {
             UdpClient __UdpListener = (UdpClient)_Result.AsyncState;
-            IPEndPoint __RemoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-            byte[] __ReceivedData = __UdpListener.EndReceive(_Result, ref __RemoteEndPoint);
-
-            cUdpPacket __Packet = new cUdpPacket(__RemoteEndPoint, __ReceivedData);
             try
-            {
+            {                
+                IPEndPoint __RemoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                byte[] __ReceivedData = __UdpListener.EndReceive(_Result, ref __RemoteEndPoint);
+
+                cUdpPacket __Packet = new cUdpPacket(__RemoteEndPoint, __ReceivedData);
+
                 PacketReceiver.OnPacketReceive(this, __Packet);
             }
             catch (Exception ex)

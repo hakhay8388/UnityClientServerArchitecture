@@ -28,7 +28,7 @@ namespace NewClientServerSampleWithUdp.nSocketManagers.nTcp
             int __Counter = 0;
             while (!__ConnectingSocket.Connected)
             {
-                //Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
                 try
                 {

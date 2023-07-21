@@ -7,5 +7,6 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nCommandGraph.nCommands.nTestC
 {
     public class cTestCommandData
     {
+        public string Test { get; set; }
     }
 }
