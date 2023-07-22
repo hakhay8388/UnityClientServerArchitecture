@@ -1,5 +1,6 @@
 ﻿using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nCountDownAction;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nOpenGameAction;
+using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nPlayerFinishedGameAction;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nPlayerTransformActions;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nReturnToLobbyAction;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nTestAction;
@@ -19,6 +20,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nActionGraph
         public cCountDownAction CountDownAction { get; set; }
         public cPlayerTransformAction PlayerTransformAction { get; set; }
 
+        public cPlayerFinishedGameAction PlayerFinishedGameActionAction { get; set; }
 
         cBaseGraph Graph { get; set; }
 
@@ -34,6 +36,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nActionGraph
             CountDownAction = new cCountDownAction(Graph);
             ReturnToLobbyAction =  new cReturnToLobbyAction(Graph);
             PlayerTransformAction = new cPlayerTransformAction(Graph);
+            PlayerFinishedGameActionAction = new cPlayerFinishedGameAction(Graph);
         }
     }
 }

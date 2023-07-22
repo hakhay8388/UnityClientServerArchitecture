@@ -18,6 +18,7 @@ namespace Assets.Scripts.nGameGraph.nWebApiGraph.nCommandGraph.nCommandIDs
         public static CommandIDs CountDown = new CommandIDs(GetVariableName(() => CountDown), 11);
         public static CommandIDs ReturnToLobby = new CommandIDs(GetVariableName(() => ReturnToLobby), 12);
         public static CommandIDs PlayerTransform = new CommandIDs(GetVariableName(() => PlayerTransform), 13);
+        public static CommandIDs PlayerFinishedGame = new CommandIDs(GetVariableName(() => PlayerFinishedGame), 14);
 
 
         public CommandIDs(string _Name, int _ID)

@@ -19,6 +19,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph.nCommandIDs
         public static CommandIDs JoinLobbyResult = new CommandIDs(GetVariableName(() => JoinLobbyResult), 11);
 
 
+
         public CommandIDs(string _Name, int _ID)
             : base(_Name, _Name, _ID)
         {

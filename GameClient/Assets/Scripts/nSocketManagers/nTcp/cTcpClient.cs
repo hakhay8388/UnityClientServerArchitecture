@@ -3,6 +3,7 @@ using NewClientServerSampleWithUdp.nSocketManagers.nSocket.nPacket;
 using NewClientServerSampleWithUdp.nSocketManagers.nSocket.nTcp.nTcpNodes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -59,7 +60,14 @@ namespace NewClientServerSampleWithUdp.nSocketManagers.nTcp
 
         public void Send(string _Message)
         {
-            TcpNode.Send(_Message);
+            try
+            {
+                TcpNode.Send(_Message);
+            }
+            catch(Exception ex)
+            {
+                
+            }
         }
 
         public void OnPacketReceive(INode _Sender, cBasePacket _Data)

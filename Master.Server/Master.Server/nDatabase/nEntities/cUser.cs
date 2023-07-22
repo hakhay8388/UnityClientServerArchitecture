@@ -8,9 +8,9 @@ namespace Master.Server.nDatabase.nEntities
 {
     public class cUser
     {
-        public long ID { get; set; }
+        public long id { get; set; }
         public string Name { get; set; }
 
-
+        public long Puan { get; set; }
     }
 }

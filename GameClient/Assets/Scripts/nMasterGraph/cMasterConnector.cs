@@ -16,10 +16,12 @@ using System.Data;
 using Assets.Scripts.nMasterGraph;
 using System.Collections.Concurrent;
 using UnityEngine.Analytics;
+using Assets.Scripts.nDatabase.nEntities;
 
 public class cMasterConnector : cBaseConnector
 {
     public static cMasterConnector Instance;
+    public static cUser User;
     public cMasterGraph MasterGraph;
 
     public static readonly ConcurrentQueue<Action> RunOnMainThread = new ConcurrentQueue<Action>();

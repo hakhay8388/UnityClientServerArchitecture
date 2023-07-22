@@ -54,8 +54,23 @@ public class cGameConnector : cBaseConnector
         
         cGameConnector.RunOnMainThread.Enqueue(() =>
         {
-            cMasterConnector.Instance.MasterGraph.Connector.TcpClient.TcpNode.Disconnect();
-            cGameConnector.Instance.GameGraph.Connector.TcpClient.TcpNode.Disconnect();
+            try
+            {
+                cMasterConnector.Instance.MasterGraph.Connector.TcpClient.TcpNode.Disconnect();
+            }
+            catch
+            { 
+            }
+
+            try
+            {
+                cGameConnector.Instance.GameGraph.Connector.TcpClient.TcpNode.Disconnect();
+            }
+            catch
+            {
+            }
+
+            
 
             Application.LoadLevel("Startup");
         });

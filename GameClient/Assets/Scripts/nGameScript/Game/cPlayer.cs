@@ -19,7 +19,7 @@ public class cPlayer : cGameReceiverObject, IPlayerTransformReceiver
         {
             transform.position = new Vector3(_ReceivedData.Position.X, transform.position.y, _ReceivedData.Position.Z);
 
-            if (cGeneralGameListener.Instance.User.ID == _ReceivedData.UserID)
+            if (cMasterConnector.User.id == _ReceivedData.UserID)
             {
                 Camera.transform.position = new Vector3(_ReceivedData.Position.X - 7, transform.position.y + 3.5f, _ReceivedData.Position.Z);
             }            

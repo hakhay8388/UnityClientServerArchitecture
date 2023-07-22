@@ -17,6 +17,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActionIDs
         public static ActionIDs CountDown = new ActionIDs(GetVariableName(() => CountDown), 11, "", true);
         public static ActionIDs ReturnToLobby = new ActionIDs(GetVariableName(() => ReturnToLobby), 12, "", true);
         public static ActionIDs PlayerTransform = new ActionIDs(GetVariableName(() => PlayerTransform), 13, "", true);
+        public static ActionIDs PlayerFinishedGame = new ActionIDs(GetVariableName(() => PlayerFinishedGame), 14, "", true);
 
         public bool Enabled { get; set; }
         public string Info { get; set; }

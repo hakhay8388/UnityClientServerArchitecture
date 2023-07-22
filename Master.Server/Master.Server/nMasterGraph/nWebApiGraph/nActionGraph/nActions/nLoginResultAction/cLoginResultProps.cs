@@ -9,6 +9,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nLoginRe
 {
     public class cLoginResultProps : cBaseProps
     {
+        public cUser User { get; set; }
         public bool Logined { get; set; }
     }
 }

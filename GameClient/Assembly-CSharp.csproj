@@ -162,6 +162,8 @@
     <Compile Include="Assets\Scripts\nMasterGraph\nWebApiGraph\nCommandGraph\nCommands\nTestCommand\cTestCommandData.cs" />
     <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\cCommandGraph.cs" />
     <Compile Include="Assets\Scripts\nSocketManagers\nTcp\ITcpDataReceiver.cs" />
+    <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\nPlayerFinishedGameCommand\IPlayerFinishedGameReceiver.cs" />
+    <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\nPlayerFinishedGameCommand\cPlayerFinishedGameCommandData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

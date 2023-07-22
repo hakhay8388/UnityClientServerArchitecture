@@ -45,7 +45,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
         {
             if (_Session != null && _Session.IsLogined)
             {
-                cLobbyItem __LobbyItem = Lobbies.Where(__Item => __Item.Users.Any(__Item => __Item.ID == _Session.User.ID) && !__Item.GameStarted).SingleOrDefault();
+                cLobbyItem __LobbyItem = Lobbies.Where(__Item => __Item.Users.Any(__Item => __Item.id == _Session.User.id) && !__Item.GameStarted).SingleOrDefault();
                 if (__LobbyItem == null)
                 {
 
@@ -55,7 +55,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
                     __LobbyItem.End();
                     __LobbyItem.Users.Remove(_Session.User);
                     GuestUsers.Remove(_Session);
-                    List<cSession> __Sessions = _Session.Server.SessionManager.GetSessionByUserIDs(__LobbyItem.Users.Select(__Item => __Item.ID).ToList());
+                    List<cSession> __Sessions = _Session.Server.SessionManager.GetSessionByUserIDs(__LobbyItem.Users.Select(__Item => __Item.id).ToList());
                     __Sessions = GuestUsers.Concat(__Sessions).ToList();
                     Graph.ActionGraph.JoinLobbyResultAction.Action(__Sessions, new cJoinLobbyResultProps() { Success = true, Users = __LobbyItem.Users });
                 }
@@ -84,7 +84,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
         {
             if (_Session.IsLogined)
             {
-                cLobbyItem __LobbyItem = Lobbies.Where(__Item => __Item.Users.Any(__Item => __Item.ID == _Session.User.ID)).SingleOrDefault();
+                cLobbyItem __LobbyItem = Lobbies.Where(__Item => __Item.Users.Any(__Item => __Item.id == _Session.User.id)).SingleOrDefault();
                 if (__LobbyItem == null)
                 {
                     Lobbies.RemoveAll(__Item => __Item.Users.Count < 1);
@@ -104,7 +104,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
                     {
                         GuestUsers.Remove(_Session);
                         __LobbyItem.Users.Add(_Session.User);
-                        List<cSession> __Sessions = _Session.Server.SessionManager.GetSessionByUserIDs(__LobbyItem.Users.Select(__Item => __Item.ID).ToList());
+                        List<cSession> __Sessions = _Session.Server.SessionManager.GetSessionByUserIDs(__LobbyItem.Users.Select(__Item => __Item.id).ToList());
 
                         if (__LobbyItem.Users.Count < Settings.GamePlayerCount)
                         {

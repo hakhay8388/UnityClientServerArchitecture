@@ -1,8 +1,10 @@
 ﻿
+using Game.Server.nDatabase;
 using Game.Server.nDatabase.nEntities;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nCountDownAction;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nOpenGameAction;
+using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nPlayerFinishedGameAction;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nPlayerTransformActions;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nReturnToLobbyAction;
 using Game.Server.nGameGraph.nWebApiGraph.nActionGraph.nActions.nTestAction;
@@ -25,10 +27,13 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
         List<cPlayer> Players { get; set; }
         List<cSession> Sessions { get; set; }
 
+        List<cPlayer> FinishedPlayers { get; set; }
+
         public cGameManagerListener(cBaseGraph _Graph)
           : base(_Graph)
         {
             Players = new List<cPlayer>();
+            FinishedPlayers = new List<cPlayer>();
         }
 
         public void GameStart()
@@ -55,7 +60,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
         public void RenderThread()
         {
             DateTime __UpdateTimer = DateTime.Now;
-            while (true)
+            while (!Program.Exit)
             {
                 while (__UpdateTimer < DateTime.Now)
                 {
@@ -76,8 +81,26 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
         {
             for (int i = 0; i < Players.Count; i++)
             {
-                Players[i].Update();
-                Graph.ActionGraph.PlayerTransformAction.Action(Sessions, new cPlayerTransformProps() { UserID = Players[i].User.ID, Position = Players[i].Position });
+                if (!Players[i].IsFinised)
+                {
+                    Players[i].Update();
+                    Graph.ActionGraph.PlayerTransformAction.Action(Sessions, new cPlayerTransformProps() { UserID = Players[i].User.id, Position = Players[i].Position });
+
+                    if (Players[i].Position.X > 100)
+                    {
+                        Players[i].IsFinised = true;
+                        FinishedPlayers.Add(Players[i]);
+                        Players[i].Rank = FinishedPlayers.Count;
+                        cUser __User = Mongo.GetUserByName(Players[i].User.Name);
+                        __User.Puan += ((Settings.GamePlayerCount + 1) - Players[i].Rank) * 10;
+                        Mongo.UpdateUser(Players[i].User);
+                        Players[i].User.Puan = __User.Puan;
+                    }
+                }
+                else if (!Players[i].FinisedBroadcasted)
+                {
+                    Graph.ActionGraph.PlayerFinishedGameActionAction.Action(Sessions, new cPlayerFinishedGameProps() { User = Players[i].User, Rank = Players[i].Rank, Puan = Players[i].User.Puan });
+                }
             }
         }
 
@@ -85,7 +108,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
         {
             if (_Session.IsLogined)
             {
-                cPlayer __Player = Players.Where(__Item => __Item.User.ID == _Session.User.ID).FirstOrDefault();
+                cPlayer __Player = Players.Where(__Item => __Item.User.id == _Session.User.id).FirstOrDefault();
                 Players.Remove(__Player);
                 Sessions.Remove(_Session);
                 if (Players.Count < Settings.GamePlayerCount)
@@ -104,6 +127,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
 
         public void ExitThread()
         {
+            Program.Exit = true;
             Thread.Sleep(3000);
             System.Environment.Exit(1);
         }
@@ -119,7 +143,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
 
                 if (Players.Count < Settings.GamePlayerCount)
                 {
-                    cPlayer __Player = Players.Where(__Item => __Item.User.ID == _ReceivedData.User.ID).FirstOrDefault();
+                    cPlayer __Player = Players.Where(__Item => __Item.User.id == _ReceivedData.User.id).FirstOrDefault();
                     if (__Player == null)
                     {
                         Players.Add(new cPlayer(_Session, _ReceivedData.User));
@@ -144,8 +168,8 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
         {
             if (_Session.IsLogined)
             {
-                cPlayer __Player = Players.Where(__Item => __Item.User.ID == _Session.User.ID).FirstOrDefault();
-                if (__Player != null)
+                cPlayer __Player = Players.Where(__Item => __Item.User.id == _Session.User.id).FirstOrDefault();
+                if (__Player != null && !__Player.IsFinised)
                 {
                     __Player.SetInput(_ReceivedData.Keys);
                 }

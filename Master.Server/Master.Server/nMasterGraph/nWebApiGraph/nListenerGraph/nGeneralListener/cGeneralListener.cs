@@ -1,4 +1,5 @@
 ﻿
+using Master.Server.nDatabase;
 using Master.Server.nDatabase.nEntities;
 using Master.Server.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nLoginResultAction;
 using Master.Server.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nTestAction;
@@ -21,9 +22,14 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nGeneralListene
 
         public void ReceiveLoginData(cSession _Session, cListenerEvent _ListenerEvent, cLoginCommandData _ReceivedData)
         {
-            TempID++;
-            _Session.User = new cUser() { Name = _ReceivedData.UserName, ID = TempID };
-            Graph.ActionGraph.LoginResultAction.Action(_Session, new cLoginResultProps() { Logined = true });
+            cUser __User =  Mongo.GetUserByName(_ReceivedData.UserName);
+            if (__User == null)
+            {
+                __User = Mongo.AddUser(_ReceivedData.UserName);
+            }
+
+            _Session.User = __User;
+            Graph.ActionGraph.LoginResultAction.Action(_Session, new cLoginResultProps() { Logined = true, User = _Session.User });
         }
 
         public void ReceiveTestData(cSession _Session, cListenerEvent _ListenerEvent, cTestCommandData _ReceivedData)

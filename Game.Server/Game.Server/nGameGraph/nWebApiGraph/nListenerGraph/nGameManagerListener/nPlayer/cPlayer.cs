@@ -23,6 +23,10 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
         public cUser User { get; set; }
         public cSession Session { get; set; }
 
+        public bool IsFinised { get; set; }
+        public bool FinisedBroadcasted { get; set; }
+
+        public int Rank { get; set; }
 
         public cPlayer(cSession _Session, cUser _User) 
         {
@@ -31,6 +35,8 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
             Session = _Session;
             User = _User;
             Inputs = new bool[4];
+            IsFinised = false;
+            FinisedBroadcasted = false;
         }
 
         public void Update()
@@ -59,10 +65,20 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
 
         private void Move(Vector2 _InputDirection)
         {
-            Vector3 __Forward = Vector3.Transform(new Vector3(0, 0, 1), Rotation);
-            Vector3 __Right = Vector3.Normalize(Vector3.Cross(__Forward, new Vector3(0, 1, 0)));
+            Vector3 __Right = Vector3.Transform(new Vector3(0, 0, 1), Rotation);
+            Vector3 __Forward = Vector3.Normalize(Vector3.Cross(__Right, new Vector3(0, 1, 0)));
 
-            Vector3 __MoveDirection = __Right * _InputDirection.X + __Forward * _InputDirection.Y;
+            if (Position.Z < -8 && _InputDirection.Y < 0)
+            {
+                _InputDirection.Y = 0;
+            }
+
+            if (Position.Z > 8 && _InputDirection.Y > 0)
+            {
+                _InputDirection.Y = 0;
+            }
+
+            Vector3 __MoveDirection = __Forward * _InputDirection.X + __Right * _InputDirection.Y;
             Position += __MoveDirection * MoveSpeed;
         }
 

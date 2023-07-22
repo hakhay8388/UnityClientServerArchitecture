@@ -31,7 +31,7 @@ namespace Game.Server.nSessionManager
         {
             lock (SessionItems)
             {
-                return SessionItems.Where(__Item => __Item.User != null && __Item.User.ID == _UserID).ToList();
+                return SessionItems.Where(__Item => __Item.User != null && __Item.User.id == _UserID).ToList();
             }
         }
 
@@ -39,14 +39,14 @@ namespace Game.Server.nSessionManager
         {
             lock (SessionItems)
             {
-                return SessionItems.Where(__Item => __Item.User != null && _UserIDList.Contains(__Item.User.ID)).ToList();
+                return SessionItems.Where(__Item => __Item.User != null && _UserIDList.Contains(__Item.User.id)).ToList();
             }
         }
         public List<long> GetAllOnlineUsers()
         {
             lock (SessionItems)
             {
-                return SessionItems.Where(__Item => __Item.User != null).Select(x => x.User.ID).ToList();
+                return SessionItems.Where(__Item => __Item.User != null).Select(x => x.User.id).ToList();
             }
         }
         public List<cSession> GetSessionByUserIDs(List<long> _UserID)
@@ -57,7 +57,7 @@ namespace Game.Server.nSessionManager
                 {
                     if (__Item.User != null)
                     {
-                        int __Index = _UserID.IndexOf(__Item.User.ID);
+                        int __Index = _UserID.IndexOf(__Item.User.id);
                         return __Item.User != null && __Index > -1;
                     }
                     return false;

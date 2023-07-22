@@ -69,6 +69,7 @@ public class cLoginPanel : cBaseMasterUIItem, ILoginResultReceiver
         Logined = _ReceivedData.Logined;
         if (Logined)
         {
+            cMasterConnector.User = _ReceivedData.User;
             Hide();
         }
     }

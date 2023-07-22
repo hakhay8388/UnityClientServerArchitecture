@@ -1,5 +1,6 @@
 ﻿using Bootstrapper.Core.nHandlers.nProcessHandler;
 using Master.Server;
+using Master.Server.nDatabase;
 using NewClientServerSampleWithUdp;
 using System.Text;
 
@@ -8,7 +9,7 @@ public static class Program
     public static void Main()
     {
         Console.WriteLine("Master Server Started...");
-
+        Mongo.Init();
         cServer __TestServer = new cServer(1235);
 
         /*cTcpServer __Test = new cTcpServer(1234, null);
