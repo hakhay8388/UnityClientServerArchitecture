@@ -42,6 +42,7 @@ namespace NewClientServerSampleWithUdp.nSocketManagers.nSocket.nUdp
             {
                 Console.WriteLine("Error : cBaseUDPItem.ReceivePacketData");
             }
+
             __UdpListener.BeginReceive(ReceiveUdpCallback, __UdpListener);
         }
 

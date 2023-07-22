@@ -87,7 +87,7 @@ namespace Game.Server.nGameGraph.nWebApiGraph.nListenerGraph.nGameManagerListene
             {
                 cPlayer __Player = Players.Where(__Item => __Item.User.ID == _Session.User.ID).FirstOrDefault();
                 Players.Remove(__Player);
-
+                Sessions.Remove(_Session);
                 if (Players.Count < Settings.GamePlayerCount)
                 {
                     Graph.ActionGraph.ReturnToLobbyAction.Action(Players.Select(__Item => __Item.Session).ToList(), new cReturnToLobbyProps());

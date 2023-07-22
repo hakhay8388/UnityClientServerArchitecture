@@ -43,7 +43,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
 
         public void ReceiveDisconnectedData(cSession _Session, cListenerEvent _ListenerEvent, cDisconnectedCommandData _ReceivedData)
         {
-            if (_Session.IsLogined)
+            if (_Session != null && _Session.IsLogined)
             {
                 cLobbyItem __LobbyItem = Lobbies.Where(__Item => __Item.Users.Any(__Item => __Item.ID == _Session.User.ID) && !__Item.GameStarted).SingleOrDefault();
                 if (__LobbyItem == null)
@@ -87,7 +87,8 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
                 cLobbyItem __LobbyItem = Lobbies.Where(__Item => __Item.Users.Any(__Item => __Item.ID == _Session.User.ID)).SingleOrDefault();
                 if (__LobbyItem == null)
                 {
-                    __LobbyItem = Lobbies.Where(__Item => __Item.Users.Count < Settings.GamePlayerCount).SingleOrDefault();
+                    Lobbies.RemoveAll(__Item => __Item.Users.Count < 1);
+                    __LobbyItem = Lobbies.Where(__Item => __Item.Users.Count < Settings.GamePlayerCount).LastOrDefault();
                     if (__LobbyItem == null)
                     {
                         __LobbyItem = new cLobbyItem(Guid.NewGuid().ToString());
