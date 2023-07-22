@@ -8,9 +8,9 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nListenerGraph
 {
     public class cBaseListener 
     {
-        public cBaseGraph Graph { get; set; }
+        public cMasterGraph Graph { get; set; }
 
-		public cBaseListener(cBaseGraph _Graph)
+		public cBaseListener(cMasterGraph _Graph)
         {
             Graph = _Graph;
         }

@@ -11,9 +11,9 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph
     public abstract class cBaseCommand
     {
         public CommandIDs CommandID;
-        public cBaseGraph Graph { get; set; }
+        public cMasterGraph Graph { get; set; }
 
-        public cBaseCommand(cBaseGraph _Graph, CommandIDs _CommandID)
+        public cBaseCommand(cMasterGraph _Graph, CommandIDs _CommandID)
         {
             CommandID = _CommandID;
             Graph = _Graph;

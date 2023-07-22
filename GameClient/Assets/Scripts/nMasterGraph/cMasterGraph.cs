@@ -5,16 +5,20 @@ using System;
 using System.Diagnostics;
 
 
-public class cMasterGraph : cBaseGraph
+public class cMasterGraph
 {
+    public cActionGraph ActionGraph { get; set; }
+    public cCommandGraph CommandGraph { get; set; }
+    public cListenerGraph ListenerGraph { get; set; }
+    public cBaseConnector Connector { get; set; }
+
     public cMasterGraph(cBaseConnector _Connector)
-        : base(_Connector)
     {
         Connector = _Connector;
         Init();
     }
 
-    public override void Init()
+    public void Init()
     {
         ActionGraph = new cActionGraph(this);
         CommandGraph = new cCommandGraph(this);

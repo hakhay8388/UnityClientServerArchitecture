@@ -9,7 +9,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nIAmInL
 {
     public class cIAmInLobbyAction : cBaseActionWithProps<cIAmInLobbyProps>
     {
-        public cIAmInLobbyAction(cBaseGraph _Graph)
+        public cIAmInLobbyAction(cMasterGraph _Graph)
            : base(_Graph, ActionIDs.IAmInLobby)
         {
         }

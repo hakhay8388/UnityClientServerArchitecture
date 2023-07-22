@@ -9,7 +9,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nGetLob
 {
     public class cGetLobbyUsersAction : cBaseActionWithProps<cGetLobbyUsersProps>
     {
-        public cGetLobbyUsersAction(cBaseGraph _Graph)
+        public cGetLobbyUsersAction(cMasterGraph _Graph)
            : base(_Graph, ActionIDs.GetLobbyUsers)
         {
         }

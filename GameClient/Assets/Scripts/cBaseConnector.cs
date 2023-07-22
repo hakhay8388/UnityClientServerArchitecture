@@ -78,6 +78,7 @@ public abstract class cBaseConnector : MonoBehaviour, ITcpDataReceiver, IUdpData
         {
             TcpClient.Send(_Message);
         }
+        //TcpClient.Send(_Message);
     }
 
 }

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Game.Server": {
+      "commandName": "Project",
+      "commandLineArgs": "2001"
+    }
+  }
+}

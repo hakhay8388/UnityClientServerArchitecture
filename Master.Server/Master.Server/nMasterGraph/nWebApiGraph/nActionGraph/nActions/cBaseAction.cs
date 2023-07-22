@@ -31,7 +31,8 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nActionGraph.nActions
         protected void Action(cSession _Session, JObject _Object)
         {
             JObject __JObject = PrepereObject(_Object);
-            Graph.Server.UdpServer.Send(_Session.UDP_IPEndPoint,  (JsonConvert.SerializeObject(__JObject)));
+            //Graph.Server.UdpServer.Send(_Session.UDP_IPEndPoint,  (JsonConvert.SerializeObject(__JObject)));
+            _Session.TcpNode.Send((JsonConvert.SerializeObject(__JObject)));
         }
 
         protected void Action(List<cSession> _Sessions, JObject _Object)
@@ -39,7 +40,8 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nActionGraph.nActions
             JObject __JObject = PrepereObject(_Object);
             for (int i = 0; i < _Sessions.Count; i++)
             {
-                Graph.Server.UdpServer.Send(_Sessions[i].UDP_IPEndPoint, (JsonConvert.SerializeObject(__JObject)));
+                //Graph.Server.UdpServer.Send(_Sessions[i].UDP_IPEndPoint, (JsonConvert.SerializeObject(__JObject)));
+                _Sessions[i].TcpNode.Send((JsonConvert.SerializeObject(__JObject)));
             }            
         }
 

@@ -10,9 +10,9 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions
     public abstract class cBaseAction
     {
         public ActionIDs ActionID { get; set; }
-        public cBaseGraph Graph { get; set; }
+        public cMasterGraph Graph { get; set; }
 
-        public cBaseAction(cBaseGraph _Graph, ActionIDs _ActionID)
+        public cBaseAction(cMasterGraph _Graph, ActionIDs _ActionID)
         {
             Graph = _Graph;
             ActionID = _ActionID;
@@ -27,15 +27,15 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions
             return __JsonObject;
         }
 
-        protected void Action(JObject _Object)
+        protected void Action(JObject _Object, bool _UseUDP = false)
         {
             JObject __JObject = PrepereObject(_Object);
             Graph.Connector.Send(JsonConvert.SerializeObject(__JObject));
         }
         
-        public virtual void Action()
+        public virtual void Action(bool _UseUDP = false)
         {
-            Action(JObject.FromObject(new { }));
+            Action(JObject.FromObject(new { }), _UseUDP);
         }
     }
 }

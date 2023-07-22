@@ -16,7 +16,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph
         Type CommandDataClass = null;
         Type CommandReceiverClass = null;
 
-        public cGenericCommand(cBaseGraph _Graph, CommandIDs _Command)
+        public cGenericCommand(cMasterGraph _Graph, CommandIDs _Command)
                 : base(_Graph, _Command)
         {
             try

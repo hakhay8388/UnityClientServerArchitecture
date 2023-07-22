@@ -10,6 +10,8 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nJoinLob
     public class cJoinLobbyResultProps : cBaseProps
     {
         public bool Success { get; set; }
+        public bool GameWillStart { get; set; }
+        public int Port { get; set; }
         public List<cUser> Users { get; set; }
     }
 }

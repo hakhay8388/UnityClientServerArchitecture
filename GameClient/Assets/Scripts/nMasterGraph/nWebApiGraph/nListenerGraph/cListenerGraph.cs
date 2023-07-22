@@ -5,10 +5,10 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nListenerGraph
 {
     public class cListenerGraph
     {
-        public cBaseGraph Graph { get; set; }
+        public cMasterGraph Graph { get; set; }
 
         public cGeneralListener GeneralListener { get; set; }
-        public cListenerGraph(cBaseGraph _Graph)
+        public cListenerGraph(cMasterGraph _Graph)
         {
             Graph = _Graph;
         }

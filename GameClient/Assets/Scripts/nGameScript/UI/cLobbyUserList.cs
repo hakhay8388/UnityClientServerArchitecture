@@ -14,6 +14,13 @@ public class cLobbyUserList : cBaseMasterUIItem, ILobbyUserListReceiver, IJoinLo
     public void ReceiveJoinLobbyResultData(cListenerEvent _ListenerEvent, cJoinLobbyResultCommandData _ReceivedData)
     {
         RefreshUserList(_ReceivedData.Users);
+        if (_ReceivedData.GameWillStart)
+        {
+            cMessagePanel.Instance.SetMessage("Game Will Start...");
+            cMessagePanel.Instance.Show();
+            cLobbyPanel.Instance.Hide();
+            cGameConnector.Instance.ConnectToServer(Settings.MasterServerIP, _ReceivedData.Port);
+        }
     }
 
     public void ReceiveLobbyUserListData(cListenerEvent _ListenerEvent, cLobbyUserListCommandData _ReceivedData)

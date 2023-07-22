@@ -14,7 +14,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nListenerGraph.nGeneralListen
         , IJoinLobbyResultReceiver
         , ILobbyUserListReceiver
     {
-        public cGeneralListener(cBaseGraph _Graph)
+        public cGeneralListener(cMasterGraph _Graph)
           : base(_Graph)
         {
         }

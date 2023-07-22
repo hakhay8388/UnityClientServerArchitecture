@@ -1,4 +1,6 @@
-﻿using NewClientServerSampleWithUdp;
+﻿using Bootstrapper.Core.nHandlers.nProcessHandler;
+using Master.Server;
+using NewClientServerSampleWithUdp;
 using System.Text;
 
 public static class Program
@@ -7,8 +9,7 @@ public static class Program
     {
         Console.WriteLine("Master Server Started...");
 
-        cServer __TestServer = new cServer(1234);
-
+        cServer __TestServer = new cServer(1235);
 
         /*cTcpServer __Test = new cTcpServer(1234, null);
        __Test.StartListening();

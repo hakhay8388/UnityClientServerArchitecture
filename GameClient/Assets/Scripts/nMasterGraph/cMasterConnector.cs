@@ -15,6 +15,7 @@ using System.Threading;
 using System.Data;
 using Assets.Scripts.nMasterGraph;
 using System.Collections.Concurrent;
+using UnityEngine.Analytics;
 
 public class cMasterConnector : cBaseConnector
 {
@@ -67,7 +68,11 @@ public class cMasterConnector : cBaseConnector
 
     public override bool OnTcpMessageReceive(cTcpNode _TcpNode, cBasePacket _Data)
     {
-        base.OnTcpMessageReceive(_TcpNode, _Data);
+        if (base.OnTcpMessageReceive(_TcpNode, _Data))
+        {
+            MasterGraph.CommandGraph.InterpreterCommand(_Data.Message);
+        }
+
         return true;
     }
 

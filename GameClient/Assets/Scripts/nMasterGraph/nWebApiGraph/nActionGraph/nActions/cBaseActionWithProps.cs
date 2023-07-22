@@ -10,7 +10,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions
     public abstract class cBaseActionWithProps<TActionProps> : cBaseAction
         where TActionProps : cBaseProps
     {
-        public cBaseActionWithProps(cBaseGraph _Graph, ActionIDs _ActionID)
+        public cBaseActionWithProps(cMasterGraph _Graph, ActionIDs _ActionID)
             :base(_Graph, _ActionID)
         {            
         }

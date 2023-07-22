@@ -9,7 +9,9 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph.nCommands.nJoin
     public class cJoinLobbyResultCommandData
     {
         public bool Success { get; set; }
+        public bool GameWillStart { get; set; }
 
+        public int Port { get; set; }
         public List<cUser> Users { get; set; }
     }
 }

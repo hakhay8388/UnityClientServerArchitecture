@@ -9,7 +9,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nJoinLo
 {
     public class cJoinLobbyAction : cBaseActionWithProps<cJoinLobbyProps>
     {
-        public cJoinLobbyAction(cBaseGraph _Graph)
+        public cJoinLobbyAction(cMasterGraph _Graph)
            : base(_Graph, ActionIDs.JoinLobby)
         {
         }

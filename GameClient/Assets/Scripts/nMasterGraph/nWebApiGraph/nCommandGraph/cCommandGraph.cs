@@ -12,11 +12,11 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nCommandGraph
     public class cCommandGraph
     {
         public List<cBaseCommand> CommandList { get; set; }
-        public cBaseGraph Graph { get; set; }
+        public cMasterGraph Graph { get; set; }
 
 
 
-        public cCommandGraph(cBaseGraph _Graph)
+        public cCommandGraph(cMasterGraph _Graph)
         {
             CommandList = new List<cBaseCommand>();
             Graph = _Graph;

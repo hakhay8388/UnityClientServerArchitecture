@@ -1,0 +1,17 @@
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.csproj.AssemblyReference.cache
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.GeneratedMSBuildEditorConfig.editorconfig
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.AssemblyInfoInputs.cache
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.AssemblyInfo.cs
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.csproj.CoreCompileInputs.cache
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\bin\Debug\net7.0\Game.Server.exe
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\bin\Debug\net7.0\Game.Server.deps.json
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\bin\Debug\net7.0\Game.Server.runtimeconfig.json
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\bin\Debug\net7.0\Game.Server.dll
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\bin\Debug\net7.0\Game.Server.pdb
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\bin\Debug\net7.0\Newtonsoft.Json.dll
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.csproj.CopyComplete
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.dll
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\refint\Game.Server.dll
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.pdb
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\Game.Server.genruntimeconfig.cache
+H:\Unity_Project\Unity_ServerClientSample\Game.Server\Game.Server\obj\Debug\net7.0\ref\Game.Server.dll

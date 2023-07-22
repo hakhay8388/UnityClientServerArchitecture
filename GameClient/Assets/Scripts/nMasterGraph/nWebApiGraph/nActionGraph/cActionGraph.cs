@@ -19,9 +19,9 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph
         public cGetLobbyUsersAction GetLobbyUsersAction { get; set; }
         public cJoinLobbyAction JoinLobbyAction { get; set; }
 
-        cBaseGraph Graph { get; set; }
+        cMasterGraph Graph { get; set; }
 
-        public cActionGraph(cBaseGraph _Graph)
+        public cActionGraph(cMasterGraph _Graph)
         {
             Graph = _Graph;
         }

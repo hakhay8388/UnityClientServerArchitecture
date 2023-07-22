@@ -9,7 +9,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nTestAc
 {
     public class cTestAction : cBaseActionWithProps<cTestProps>
     {
-        public cTestAction(cBaseGraph _Graph)
+        public cTestAction(cMasterGraph _Graph)
            : base(_Graph, ActionIDs.Test)
         {
         }

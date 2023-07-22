@@ -9,7 +9,7 @@ namespace Assets.Scripts.nMasterGraph.nWebApiGraph.nActionGraph.nActions.nLoginA
 {
     public class cLoginAction : cBaseActionWithProps<cLoginProps>
     {
-        public cLoginAction(cBaseGraph _Graph)
+        public cLoginAction(cMasterGraph _Graph)
            : base(_Graph, ActionIDs.Login)
         {
         }
