@@ -27,3 +27,18 @@ uygulama ayağa kalkarken parametre olarak bildiriliyor.
 GamePlayerCount    	: Bu ayara oyuna kaç kişi katılabileceğini belirtiyor.
 
 MongoConnectionUri 	: Şuanda mongodb'nin cloud free olarak atlas'ı kullanıldı ve bu değişken ilgili veritabanı bağlantı linkini içeriyor.
+
+
+## Game.Server
+Game.Server projesi içerisinde Settings.cs dosyasında çeşitli ayarlar bulunmaktadır.
+
+GamePlayerCount    	: Dışarıdan gelen oyuncu sayısı parametresi buraya setleniyor. 
+
+MongoConnectionUri 	: Şuanda mongodb'nin cloud free olarak atlas'ı kullanıldı ve bu değişken ilgili veritabanı bağlantı linkini içeriyor.
+
+TICKS_PER_SEC 		: Oyun sunucusu içerisinde küçük bir update mekanızması bulunuyor. Bu update mekanizmasının saniyede kaçkere yenileneceğini bu parametre belirliyor.
+					  şuanda bu parametre "30" setlenmiş durumda. Bu parametre ile GameClient içerisindeki FixedUpdate paramteresi arasında şu formüle göre akış belirleniyor.
+					  1 / TICKS_PER_SEC = 0.033333 -> bu formule göre GameClient tarafındaki FixedUpdate parametresi 0.033333 setlenmiş durumda. Yukarıda bahsettiğim update
+					  mekanizması saniyede 30 kere GameClient tarafına anlık bilgi gönderiyor.
+					  
+MS_PER_TICK 		: Bu parametre "1000f / TICKS_PER_SEC" bu formüle göre iki tick arasına kaç milisaniye bekleyeceğini belirtiyor.
