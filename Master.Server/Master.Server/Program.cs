@@ -10,7 +10,7 @@ public static class Program
     {
         Console.WriteLine("Master Server Started...");
         Mongo.Init();
-        cServer __TestServer = new cServer(1235);
+        cServer __TestServer = new cServer(Settings.ListenPort);
 
         /*cTcpServer __Test = new cTcpServer(1234, null);
        __Test.StartListening();
@@ -28,7 +28,6 @@ public static class Program
         /*cTestUdpServer __Test = new cTestUdpServer();
 
         cTestUdpClient __Client = new cTestUdpClient();
-
 
 
         */

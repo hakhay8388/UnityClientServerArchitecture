@@ -34,7 +34,7 @@ namespace Master.Server.nMasterGraph.nWebApiGraph.nListenerGraph.nLobbyManagerLi
 
         public void ServerStarterThread()
         {
-            GameProcess = cProcessHandler.OpenModalProcess(Settings.GameServerPath, Port.ToString());
+            GameProcess = cProcessHandler.OpenModalProcess(Settings.GameServerPath, Port.ToString() + " " + Settings.GamePlayerCount);
         }
 
         public void End()

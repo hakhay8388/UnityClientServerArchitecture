@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\ICommandReceiver.cs" />
     <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nActionGraph\nActions\cBaseActionWithProps.cs" />
     <Compile Include="Assets\Scripts\nMasterGraph\nWebApiGraph\nListenerGraph\cBaseListener.cs" />
+    <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\nPlayerFinishedGameCommand\cPlayerFinishedGameCommandData.cs" />
     <Compile Include="Assets\Scripts\nGameScript\Game\cPlayer.cs" />
     <Compile Include="Assets\Scripts\nGameScript\UI\cLoginPanel.cs" />
     <Compile Include="Assets\Scripts\nMasterGraph\nWebApiGraph\nCommandGraph\nCommands\nTestCommand\ITestReceiver.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Assets\Scripts\nMasterGraph\nWebApiGraph\nCommandGraph\cRecieverItem.cs" />
     <Compile Include="Assets\Scripts\nSocketManagers\nSocket\nPacket\cBasePacket.cs" />
     <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nActionGraph\nActions\nIAmInGameAction\cIAmInGameProps.cs" />
+    <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\nPlayerFinishedGameCommand\IPlayerFinishedGameReceiver.cs" />
     <Compile Include="Assets\Scripts\nMasterGraph\cMasterGraph.cs" />
     <Compile Include="Assets\Scripts\nUtils\nValueTypes\nConstType\IConstTypeType.cs" />
     <Compile Include="Assets\Scripts\nMasterGraph\nWebApiGraph\nCommandGraph\nCommands\nLobbyUserListCommand\cLobbyUserListCommandData.cs" />
@@ -162,8 +164,6 @@
     <Compile Include="Assets\Scripts\nMasterGraph\nWebApiGraph\nCommandGraph\nCommands\nTestCommand\cTestCommandData.cs" />
     <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\cCommandGraph.cs" />
     <Compile Include="Assets\Scripts\nSocketManagers\nTcp\ITcpDataReceiver.cs" />
-    <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\nPlayerFinishedGameCommand\IPlayerFinishedGameReceiver.cs" />
-    <Compile Include="Assets\Scripts\nGameGraph\nWebApiGraph\nCommandGraph\nCommands\nPlayerFinishedGameCommand\cPlayerFinishedGameCommandData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

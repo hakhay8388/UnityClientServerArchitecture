@@ -1,4 +1,5 @@
-﻿using Game.Server.nDatabase;
+﻿using Game.Server;
+using Game.Server.nDatabase;
 using NewClientServerSampleWithUdp;
 using System.Text;
 
@@ -9,6 +10,7 @@ public static class Program
     {
         Console.WriteLine("Game Server Started...: Port : " + _Args[0]);
         Mongo.Init();
+        Settings.GamePlayerCount = Convert.ToInt32(_Args[1]);
         cServer __TestServer = new cServer(Convert.ToInt32(_Args[0]));
 
 
