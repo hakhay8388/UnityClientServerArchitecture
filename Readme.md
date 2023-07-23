@@ -16,7 +16,7 @@ Tüm proje TCP ve UDP bağlantıyı destekleyecek şekilde geliştirildi. Şuand
 tüm iletişim UDP üzerinden gerçekleşiyor.
 
 ## Master.Server
-Master.Server projesi içerisinde Settings.cs dosyasında çeşitli ayarlar bulunmaktadır.
+Master.Server projesi içerisinde Settings.cs dosyasında çeşitli ayarlar bulunmaktadır. Bu proje çalıştırılmadan önce Game.Server projesi build edilmiş ve exe'si hazırlanmış olmalıdır.
 
 ListenPort 			: Bu Master.Server projesinin hangi protu dinleyeceğini belirten ayardır. Şuanda "1235" dinleyecek şekilde ayarlandı.
 
