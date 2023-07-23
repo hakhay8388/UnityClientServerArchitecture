@@ -42,3 +42,9 @@ TICKS_PER_SEC 		: Oyun sunucusu içerisinde küçük bir update mekanızması bu
 					  mekanizması saniyede 30 kere GameClient tarafına anlık bilgi gönderiyor.
 					  
 MS_PER_TICK 		: Bu parametre "1000f / TICKS_PER_SEC" bu formüle göre iki tick arasına kaç milisaniye bekleyeceğini belirtiyor.
+
+## GameClient
+GameClient projesi içerisinde Settings.cs dosyasında çeşitli ayarlar bulunmaktadır.
+
+MasterServerIP 		: Master.Game sunucusunun IP adresini burada belirtiyoruz. Şuanda "127.0.0.1" e setlenmiş durumda.
+MasterServerPort 	: Master.Game sunucusuna hangi porttan giriş yapacağını buradan belirtiyoruz. Şuanda "1235" e setlenmiş durumda.
