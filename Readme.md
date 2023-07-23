@@ -44,6 +44,7 @@ TICKS_PER_SEC 		: Oyun sunucusu içerisinde küçük bir update mekanızması bu
 MS_PER_TICK 		: Bu parametre "1000f / TICKS_PER_SEC" bu formüle göre iki tick arasına kaç milisaniye bekleyeceğini belirtiyor.
 
 ## GameClient
+Projenin açılış sahnesi "Startup" sahnesidir. 
 GameClient projesi içerisinde Settings.cs dosyasında çeşitli ayarlar bulunmaktadır.
 
 MasterServerIP 		: Master.Game sunucusunun IP adresini burada belirtiyoruz. Şuanda "127.0.0.1" e setlenmiş durumda.
